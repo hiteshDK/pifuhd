@@ -90,10 +90,10 @@ def eval_grid_octree(coords, eval_func,
 
     sdf = np.zeros(resolution)
 
-    notprocessed = np.zeros(resolution, dtype=np.bool)
+    notprocessed = np.zeros(resolution, dtype=bool)
     notprocessed[:-1,:-1,:-1] = True
-    grid_mask = np.zeros(resolution, dtype=np.bool)
-
+    grid_mask = np.zeros(resolution, dtype=bool)
+    print("----debugging---code came here")
     reso = resolution[0] // init_resolution
 
     while reso > 0:
@@ -147,5 +147,5 @@ def eval_grid_octree(coords, eval_func,
             sdf[x:(x+reso+1), y:(y+reso+1), z:(z+reso+1)] = v[x//reso,y//reso,z//reso]
             notprocessed[x:(x+reso+1), y:(y+reso+1), z:(z+reso+1)] = False
         reso //= 2
-
+    print("----debugging---exiting eval_grid_octree function in sdf file")
     return sdf.reshape(resolution)
