@@ -103,6 +103,7 @@ def save_obj_mesh(mesh_path, verts, faces=None):
 
 
 def save_obj_mesh_with_color(mesh_path, verts, faces, colors):
+    print("-----debugging-----",mesh_path)
     file = open(mesh_path, 'w')
 
     for idx, v in enumerate(verts):
@@ -111,6 +112,7 @@ def save_obj_mesh_with_color(mesh_path, verts, faces, colors):
     for f in faces:
         f_plus = f + 1
         file.write('f %d %d %d\n' % (f_plus[0], f_plus[2], f_plus[1]))
+    print("-----debugging-----mesh file closed")    
     file.close()
 
 
